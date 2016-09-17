@@ -29,7 +29,7 @@ body.landing {
 	background-image: url(../assets/images/bloc_jams_bg.jpg);
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-size: cover
+	background-size: cover;
 }
 
 .hero-content .hero-title {
