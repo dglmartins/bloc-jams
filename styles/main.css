@@ -58,3 +58,14 @@ body {
 		font-size: 120%;
 	}
 }
+
+/* Clearfix */
+.clearfix::before,
+.clearfix::after {
+	content: " ";
+	display: table;
+}
+
+.clearfix::after {
+	clear: both;
+}
