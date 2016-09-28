@@ -26,6 +26,30 @@ var albumMarconi = {
 			 { title: "Can you hear me now?", duration: "3:14" },
 			 { title: "Wrong phone number", duration: "2:15"}
 		 ]
+	
+ };
+
+var albumToTheSea = {
+		 title: "To the Sea",
+		 artist: "Jack Johnson",
+		 label: "Universal",
+		 year: "2010",
+		 albumArtUrl: "assets/images/album_covers/tothesea.jpg",
+		 songs: [
+			 { title: "You and Your Hear", duration: "3:13" },
+			 { title: "To the Sea", duration: "3:30" },
+			 { title: "No Good with Faces", duration: "3:31"},
+			 { title: "At or With Me", duration: "3:58" },
+			 { title: "When I look Up", duration: "0:58"},
+			 { title: "From the Clouds", duration: "3:05"},
+			 { title: "My Little Girl", duration: "2:21"},
+			 { title: "Turn Your Love", duration: "3:13"},
+			 { title: "The Upsetter", duration: "3:50"},
+			 { title: "Red Wine, Mistakes, Mythology", duration: "4:03"},
+			 { title: "Pictures of People Taking Pictures", duration: "3:20"},
+			 { title: "Only the Ocean", duration: "2:54"},
+			 { title: "Turn Your Love", duration: "3:40"}
+		 ]
  };
 
 var createSongRow = function(songNumber, songName, songLength) {
@@ -60,6 +84,24 @@ var setCurrentAlbum = function(album) {
 	
 };
 
+var albumCoverArt = document.getElementsByClassName("album-cover-art")[0];
+
+var albumToggleControl = 0;
+
+function switchAlbums() {
+	albumToggleControl += 1;
+	if (albumToggleControl == 1) {
+		setCurrentAlbum(albumMarconi);
+	} else if (albumToggleControl == 2) {
+		setCurrentAlbum(albumToTheSea);
+	} else {
+		setCurrentAlbum(albumPicasso);
+		albumToggleControl = 0;
+	}
+}
+
+
 window.onload = function() {
 	setCurrentAlbum(albumPicasso);
+	albumCoverArt.addEventListener("click", switchAlbums)
 }
