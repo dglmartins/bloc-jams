@@ -65,18 +65,27 @@ var setCurrentAlbum = function(album) {
 var findParentByClassName = function(childElement, classParent) {
 	var parent = ""
 	var parentClass = "";
-	while (parentClass != classParent) {
-		parent = childElement.parentElement;
-		if (parent === null) {
-			break;
+	if (childElement.parentElement === null) {
+		alert("No parent found")
+	} else {
+		while (parentClass != classParent) {
+			parent = childElement.parentElement;
+			if (parent === null) {
+				break;
+			}
+			parentClass = parent.className;
+			childElement = childElement.parentElement;
 		}
-		parentClass = parent.className;
-		childElement = childElement.parentElement;
-		
+
+		if (parent === null) {
+			alert("No parent found with that class name");
+		}
 	}
-	
+
+
 	return parent;	
 };
+
 
 var getSongItem = function(element) {
     switch (element.className) {
@@ -126,7 +135,6 @@ window.onload = function() {
 	
 	
 	setCurrentAlbum(albumPicasso);
-	
 	
 	
 	songListContainer.addEventListener('mouseover', function(event) {
