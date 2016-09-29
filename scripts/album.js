@@ -132,7 +132,7 @@ window.onload = function() {
 	songListContainer.addEventListener('mouseover', function(event) {
 		if (event.target.parentElement.className === 'album-view-song-item') {
 			var songItem = getSongItem(event.target);
-			
+			var songItemNumber = songItem.getAttribute('data-song-number');
 			if (songItemNumber != currentlyPlayingSong) {
 				songItem.innerHTML = playButtonTemplate;
 			}
