@@ -56,7 +56,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 	return $row;
 };
 
-var getSong = function(songNumber) {
+var setSong = function(songNumber) {
 	currentlyPlayingSongNumber = parseInt(songNumber);
 	currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
 };
