@@ -20,7 +20,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 		}
 		if (currentlyPlayingSongNumber !== songNumber) {
 			$(this).html(pauseButtonTemplate);
-			getSong(songNumber);
+			setSong(songNumber);
 			updatePlayerBarSong();
 			
 		} else if (currentlyPlayingSongNumber === songNumber) {
@@ -56,7 +56,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 	return $row;
 };
 
-var getSong = function(songNumber) {
+var setSong = function(songNumber) {
 	currentlyPlayingSongNumber = parseInt(songNumber);
 	currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
 };
@@ -110,7 +110,7 @@ var moveSong = function() {
 
 		// Set a new current song
 		var songNumber = currentSongIndex + 1;
-		getSong(songNumber);
+		setSong(songNumber);
 
 		// Update the Player Bar information
 		$('.currently-playing .song-name').text(currentSongFromAlbum.title);
@@ -145,7 +145,7 @@ var moveSong = function() {
 
 		// Set a new current song
 		var songNumber = currentSongIndex + 1;
-		getSong(songNumber);
+		setSong(songNumber);
 
 		// Update the Player Bar information
 		$('.currently-playing .song-name').text(currentSongFromAlbum.title);
